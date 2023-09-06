@@ -47,10 +47,10 @@ public class App {
                             maxIndex = i;
                         }
                     }
-                    int mean;
+                    double mean = Arrays.stream(priser).average().getAsDouble();
                     System.out.println("Det lägsta priset är: " + min + " kr per kW/h mellan klockan " + minIndex + "-" + (minIndex + 1));
                     System.out.println("Det högsta priset är: " + max + " kr per kW/h mellan klockan " + maxIndex + "-" + (maxIndex + 1));
-                    System.out.println("Medelvärdet av priset per kW/h under dygnet är: ");
+                    System.out.println("Medelvärdet av priset per kW/h under dygnet är: " + mean);
                     break;
                 case "3":
                     //ToDo: Sortera koden efter dyrast till billigast.
