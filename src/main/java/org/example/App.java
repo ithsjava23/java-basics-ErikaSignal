@@ -1,5 +1,7 @@
 package org.example;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class App {
@@ -48,12 +50,16 @@ public class App {
                         }
                     }
                     double mean = Arrays.stream(priser).average().getAsDouble();
-                    System.out.println("Det lägsta priset är: " + min + " kr per kW/h mellan klockan " + minIndex + "-" + (minIndex + 1));
-                    System.out.println("Det högsta priset är: " + max + " kr per kW/h mellan klockan " + maxIndex + "-" + (maxIndex + 1));
-                    System.out.println("Medelvärdet av priset per kW/h under dygnet är: " + mean);
+                    System.out.println("Det lägsta priset är: " + min + " öre per kW/h mellan klockan " + minIndex + "-" + (minIndex + 1));
+                    System.out.println("Det högsta priset är: " + max + " öre per kW/h mellan klockan " + maxIndex + "-" + (maxIndex + 1));
+                    System.out.println("Medelvärdet av priset per kW/h under dygnet är: " + mean + " öre");
                     break;
                 case "3":
-                    //ToDo: Sortera koden efter dyrast till billigast.
+                    int order = 0;
+                    for (int i = 0; i < priser.length; i++) {
+                        order = i;
+                        System.out.println(order + "-" + (order +1) + " " + priser[i] + " öre");
+                    }
                     break;
                 case "4":
                     //ToDo: Bästa/billigaste 4 timmar i sträck.
