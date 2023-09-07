@@ -1,8 +1,5 @@
 package org.example;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Scanner;
+import java.util.*;
 
 public class App {
 
@@ -55,10 +52,14 @@ public class App {
                     System.out.println("Medelvärdet av priset per kW/h under dygnet är: " + mean + " öre");
                     break;
                 case "3":
-                    int order = 0;
+                    List<Sort> elements = new ArrayList<Sort>();
                     for (int i = 0; i < priser.length; i++) {
-                        order = i;
-                        System.out.println(order + "-" + (order +1) + " " + priser[i] + " öre");
+                        elements.add(new Sort(i, priser[i]));
+                    }
+                    Collections.sort(elements);
+                    Collections.reverse(elements);
+                    for (Sort element : elements) {
+                        System.out.println(element.index + "-" + (element.index + 1) + " " + element.value + " öre");
                     }
                     break;
                 case "4":
