@@ -64,6 +64,24 @@ public class App {
                     }
                 }
                 case "4" -> {
+                    double minMean = Double.MAX_VALUE;
+                    int minMeanIndex = -1;
+                    int tid = 0;
+                    for (int i = 0; i <= priser.length - 4; i++) {
+                        double sum = 0;
+                        for (int j = i; j < i + 4; j++) {
+                            sum += priser[j];
+                        }
+                        double mean = sum / 4;
+                        if (mean < minMean) {
+                            minMean = mean;
+                            minMeanIndex = i;
+                        }
+                    }
+                    for (int i = minMeanIndex; i < minMeanIndex + 4; i++) {
+                        tid = i - 3;
+                    }
+                    System.out.println("Den billigaste laddningstiden för 4 timmar i streck är med start klockan " + tid + " och medelpriset för dessa 4 timmar blir " + minMean + " öre.");
                 }
                 case "e", "E" -> {}
                 default -> System.out.println("Fel inmatning, kontrollera och försök igen.");
