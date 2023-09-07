@@ -4,7 +4,6 @@ import java.util.*;
 public class App {
 
     public static void main(String[] args) {
-
         String val;
         Scanner sc = new Scanner(System.in);
         int[] priser = new int [24];
@@ -22,7 +21,9 @@ public class App {
             switch (val) {
                 case "1" -> {
                     for (int i = 0; i < 24; i++) {
-                        System.out.print("Ange pris på elen i hela ören per kW/h för timintervall " + i + "-" + (i + 1) + ": ");
+                        System.out.printf("Ange pris på elen i hela ören per kW/h för timintervall %02d", i);
+                        System.out.printf("-%02d", (i + 1));
+                        System.out.print(": ");
                         int pris = sc.nextInt();
                         sc.nextLine();
                         priser[i] = pris;
@@ -47,9 +48,14 @@ public class App {
                         }
                     }
                     double mean = Arrays.stream(priser).average().getAsDouble();
-                    System.out.println("Det lägsta priset är: " + min + " öre per kW/h vid timintervall " + minIndex + "-" + (minIndex + 1));
-                    System.out.println("Det högsta priset är: " + max + " öre per kW/h vid timintervall " + maxIndex + "-" + (maxIndex + 1));
-                    System.out.println("Medelvärdet av priset per kW/h under dygnet är: " + mean + " öre");
+                    System.out.print("Det lägsta priset är " + min);
+                    System.out.printf(" öre per kW/h vid timintervall %02d", minIndex);
+                    System.out.printf("-%02d\n", (minIndex + 1));
+                    System.out.print("Det lägsta priset är " + max);
+                    System.out.printf(" öre per kW/h vid timintervall %02d", maxIndex);
+                    System.out.printf("-%02d\n", (maxIndex + 1));
+                    System.out.printf("Medelvärdet av alla priser under dygnet är %.2f", mean);
+                    System.out.print(" öre\n");
                 }
                 case "3" -> {
                     System.out.println("Priser sorterade från dyrast till billigast pris per kW/h inklusive dess timintervall:");
@@ -60,7 +66,9 @@ public class App {
                     Collections.sort(elements);
                     Collections.reverse(elements);
                     for (Sort element : elements) {
-                        System.out.println(element.index + "-" + (element.index + 1) + " " + element.value + " öre");
+                        System.out.printf("%02d", element.index);
+                        System.out.printf("-%02d", (element.index + 1));
+                        System.out.print(" " + element.value + " öre\n");
                     }
                 }
                 case "4" -> {
