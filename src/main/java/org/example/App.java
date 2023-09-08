@@ -9,13 +9,13 @@ public class App {
         int[] priser = new int [24];
 
         do {
-            System.out.println("Elpriser");
-            System.out.println("========");
-            System.out.println("1. Inmatning");
-            System.out.println("2. Min, max och medel");
-            System.out.println("3. Sortera");
-            System.out.println("4. Bästa laddningstid (4h)");
-            System.out.println("e. Avsluta");
+            System.out.print("Elpriser\n");
+            System.out.print("========\n");
+            System.out.print("1. Inmatning\n");
+            System.out.print("2. Min, max och medel\n");
+            System.out.print("3. Sortera\n");
+            System.out.print("4. Bästa laddningstid (4h)\n");
+            System.out.print("e. Avsluta\n");
             val = sc.nextLine();
 
             switch (val) {
@@ -28,7 +28,7 @@ public class App {
                         sc.nextLine();
                         priser[i] = pris;
                     }
-                    System.out.println("Priser är nu lagrade.");
+                    System.out.print("Priser är nu lagrade.\n");
                 }
                 case "2" -> {
                     int min = priser[0];
@@ -58,7 +58,7 @@ public class App {
                     System.out.print(" öre\n");
                 }
                 case "3" -> {
-                    System.out.println("Priser sorterade från dyrast till billigast pris per kW/h inklusive dess timintervall:");
+                    System.out.print("Priser sorterade från dyrast till billigast pris per kW/h inklusive dess timintervall:\n");
                     List<Sort> elements = new ArrayList<>();
                     for (int i = 0; i < priser.length; i++) {
                         elements.add(new Sort(i, priser[i]));
@@ -89,12 +89,12 @@ public class App {
                     for (int i = minMeanIndex; i < minMeanIndex + 4; i++) {
                         tid = i - 3;
                     }
-                    System.out.println("Den billigaste laddningstiden för 4 timmar i streck är med start klockan " + tid + " och medelpriset för dessa 4 timmar blir " + minMean + " öre.");
+                    System.out.print("Den billigaste laddningstiden för 4 timmar i streck är med start klockan " + tid + " och medelpriset för dessa 4 timmar blir " + minMean + " öre.\n");
                 }
                 case "e", "E" -> {}
-                default -> System.out.println("Fel inmatning, kontrollera och försök igen.");
+                default -> System.out.print("Fel inmatning, kontrollera och försök igen.\n");
             }
         } while(!"e".equalsIgnoreCase(val));
-        System.out.println("Programmet har avslutats");
+        System.out.print("Programmet har avslutats\n");
     }
 }
