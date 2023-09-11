@@ -51,7 +51,7 @@ public class App {
                     System.out.print("Det lägsta priset är " + min);
                     System.out.printf(" öre per kW/h vid timintervall %02d", minIndex);
                     System.out.printf("-%02d\n", (minIndex + 1));
-                    System.out.print("Det lägsta priset är " + max);
+                    System.out.print("Det dyraste priset är " + max);
                     System.out.printf(" öre per kW/h vid timintervall %02d", maxIndex);
                     System.out.printf("-%02d\n", (maxIndex + 1));
                     System.out.printf("Medelvärdet av alla priser under dygnet är %.2f", mean);
@@ -89,7 +89,9 @@ public class App {
                     for (int i = minMeanIndex; i < minMeanIndex + 4; i++) {
                         tid = i - 3;
                     }
-                    System.out.print("Den billigaste laddningstiden för 4 timmar i streck är med start klockan " + tid + " och medelpriset för dessa 4 timmar blir " + minMean + " öre.\n");
+                    System.out.print("Den billigaste laddningstiden för 4 timmar i streck är med start klockan " + tid + ".00");
+                    System.out.printf(" och medelpriset för dessa 4 timmar blir %,.2f", minMean);
+                    System.out.printf(" öre.\n");
                 }
                 case "e", "E" -> {}
                 default -> System.out.print("Fel inmatning, kontrollera och försök igen.\n");
