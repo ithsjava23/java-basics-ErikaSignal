@@ -9,19 +9,23 @@ public class App {
         int[] priser = new int [24];
 
         do {
-            System.out.print("Elpriser\n");
-            System.out.print("========\n");
-            System.out.print("1. Inmatning\n");
-            System.out.print("2. Min, max och medel\n");
-            System.out.print("3. Sortera\n");
-            System.out.print("4. Bästa laddningstid (4h)\n");
-            System.out.print("e. Avsluta\n");
+            String menu = """
+                Elpriser
+                ========
+                1. Inmatning
+                2. Min, Max och Medel
+                3. Sortera
+                4. Bästa Laddningstid (4h)
+                e. Avsluta
+                """;
+            System.out.print(menu);
             val = sc.nextLine();
 
             switch (val) {
                 case "1" -> {
+                    System.out.print("Ange pris på elen i hela ören per kW/h för timintervall:  \n");
                     for (int i = 0; i < 24; i++) {
-                        System.out.printf("Ange pris på elen i hela ören per kW/h för timintervall %02d", i);
+                        System.out.printf("%02d", i);
                         System.out.printf("-%02d", (i + 1));
                         System.out.print(": ");
                         int pris = sc.nextInt();
@@ -89,9 +93,10 @@ public class App {
                     for (int i = minMeanIndex; i < minMeanIndex + 4; i++) {
                         tid = i - 3;
                     }
-                    System.out.print("Den billigaste laddningstiden för 4 timmar i streck är med start klockan " + tid + ".00");
+                    System.out.printf("Den billigaste laddningstiden för 4 timmar i streck är med start klockan %02d", tid);
+                    System.out.print(".00");
                     System.out.printf(" och medelpriset för dessa 4 timmar blir %,.2f", minMean);
-                    System.out.printf(" öre.\n");
+                    System.out.print(" öre.\n");
                 }
                 case "e", "E" -> {}
                 default -> System.out.print("Fel inmatning, kontrollera och försök igen.\n");
