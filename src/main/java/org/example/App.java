@@ -52,14 +52,9 @@ public class App {
                         }
                     }
                     double mean = Arrays.stream(priser).average().getAsDouble();
-                    System.out.printf("Lägsta pris: %02d", minIndex);
-                    System.out.printf("-%02d", (minIndex + 1));
-                    System.out.printf(", %d öre/kWh \n", min);
-                    System.out.printf("Högsta pris: %02d", maxIndex);
-                    System.out.printf("-%02d", (maxIndex + 1));
-                    System.out.printf(", %d öre/kWh \n", max);
-                    System.out.printf("Medelpris: %.2f", mean);
-                    System.out.print(" öre/kWh\n");
+                    System.out.printf("Lägsta pris: %02d-%02d, %d öre/kWh\n", (minIndex), (minIndex + 1), min);
+                    System.out.printf("Högsta pris: %02d-%02d, %d öre/kWh\n", (maxIndex), (maxIndex + 1), max);
+                    System.out.printf("Medelpris: %.2f öre/kWh\n", mean);
                 }
                 case "3" -> {
                     System.out.print("Priser sorterade från dyrast till billigast pris per kW/h inklusive dess timintervall:\n");
