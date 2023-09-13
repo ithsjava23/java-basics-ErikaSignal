@@ -52,14 +52,14 @@ public class App {
                         }
                     }
                     double mean = Arrays.stream(priser).average().getAsDouble();
-                    System.out.print("Det lägsta priset är " + min);
-                    System.out.printf(" öre per kW/h vid timintervall %02d", minIndex);
-                    System.out.printf("-%02d\n", (minIndex + 1));
-                    System.out.print("Det dyraste priset är " + max);
-                    System.out.printf(" öre per kW/h vid timintervall %02d", maxIndex);
-                    System.out.printf("-%02d\n", (maxIndex + 1));
-                    System.out.printf("Medelvärdet av alla priser under dygnet är %.2f", mean);
-                    System.out.print(" öre\n");
+                    System.out.printf("Lägsta pris: %02d", minIndex);
+                    System.out.printf("-%02d", (minIndex + 1));
+                    System.out.printf(", %d öre/kWh \n", min);
+                    System.out.printf("Högsta pris: %02d", maxIndex);
+                    System.out.printf("-%02d", (maxIndex + 1));
+                    System.out.printf(", %d öre/kWh \n", max);
+                    System.out.printf("Medelpris: %.2f", mean);
+                    System.out.print(" öre/kWh\n");
                 }
                 case "3" -> {
                     System.out.print("Priser sorterade från dyrast till billigast pris per kW/h inklusive dess timintervall:\n");
@@ -68,7 +68,6 @@ public class App {
                         elements.add(new Sort(i, priser[i]));
                     }
                     Collections.sort(elements);
-                    Collections.reverse(elements);
                     for (Sort element : elements) {
                         System.out.printf("%02d", element.index);
                         System.out.printf("-%02d", (element.index + 1));
@@ -93,10 +92,9 @@ public class App {
                     for (int i = minMeanIndex; i < minMeanIndex + 4; i++) {
                         tid = i - 3;
                     }
-                    System.out.printf("Den billigaste laddningstiden för 4 timmar i streck är med start klockan %02d", tid);
-                    System.out.print(".00");
-                    System.out.printf(" och medelpriset för dessa 4 timmar blir %,.2f", minMean);
-                    System.out.print(" öre.\n");
+                    System.out.printf("Påbörja laddning klockan %02d\n", tid);
+                    System.out.printf("Medelpris 4h: %,.1f", minMean);
+                    System.out.print(" öre/kWh\n");
                 }
                 case "e", "E" -> {}
                 default -> System.out.print("Fel inmatning, kontrollera och försök igen.\n");
