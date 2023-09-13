@@ -4,6 +4,7 @@ import java.util.*;
 public class App {
 
     public static void main(String[] args) {
+        Locale.setDefault(Locale.of("sv", "SE"));
         String val;
         Scanner sc = new Scanner(System.in);
         int[] priser = new int [24];
